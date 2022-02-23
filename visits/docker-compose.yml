@@ -1,0 +1,11 @@
+version: '3'
+#typeof container
+services:
+  redis-server:
+    image: 'redis'
+  node-app:
+    restart: on-failure
+    #build image to use
+    build: .
+    ports:
+      - "4081:8081"

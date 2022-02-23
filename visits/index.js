@@ -1,11 +1,18 @@
 const express = require("express");
 const redis = require("redis");
+const process = require("process");
 
 const app = express();
-const client = redis.createClient();
+const client = redis.createClient({
+  // usually some url "https://my-redis.com"
+  // but if used docker, you would be able to put service name
+  host: "redis-server",
+  port: 6379,
+});
 client.set("visits", 0);
 
 app.get("/", (req, res) => {
+  process.exit(1);
   client.get("visits", (err, visits) => {
     res.send("Number of visit is " + visits);
     client.set("visits", parseInt(visits) + 1);
