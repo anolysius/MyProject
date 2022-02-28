@@ -1,15 +1,20 @@
 
 
-docker build -t(tag)
+docker build 
+-t(tag)
+-f specific file
 
 docker run [tag] [iamge] [command]
 -i(interact) 
 -t(tty)
 -d background
 -p(port) 8080(incoming requests to this port on local host):8080(inside the container)
+-v volumn
 
 docker start = build + run
 docker stop id
+docker exec
+
 
 start
 docker-compose up 
